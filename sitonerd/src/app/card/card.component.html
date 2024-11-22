@@ -1,14 +1,19 @@
-<div>
-    <div *ngIf="loading" class="loading-container">
-      Loading...
+<div class="main-container">
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="!loading && cardData" class="card-container">
+    <h1 class="card-title">{{ cardData.name }}</h1>
+    <div class="card-image-wrapper">
+      <img [src]="cardData.image_uris.normal" [alt]="cardData.name" class="card-image">
     </div>
-    
-    <div *ngIf="!loading && cardData" class="card-container" style="margin-left: 35%">
-      <h1>{{ cardData.name }}</h1>
-      <img [src]="cardData.image_uris.normal" alt="{{ cardData.name }}">
+    <div class="card-details">
       <p><strong>Type:</strong> {{ cardData.type_line }}</p>
       <p><strong>Text:</strong> {{ cardData.oracle_text }}</p>
       <p><strong>Set:</strong> {{ cardData.set_name }}</p>
       <p><strong>Price:</strong> ${{ cardData.prices.usd }}</p>
     </div>
-    </div>
+  </div>
+</div>

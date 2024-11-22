@@ -1,16 +1,22 @@
-<div align="center">
-  <input [(ngModel)]="searchTerm" placeholder="Search for a card" />
-  <button (click)="searchCard()">Search</button>
-  </div>
-<nav align="center">
-  <ul>
-    <button><a routerLink="/card/Endurance Bobblehead">Endurance Bobblehead</a></button>
-    <button><a routerLink="/card/Rubblebelt Maaka">Rubblebelt Maaka</a></button>
-    <button><a routerLink="/card/Cragganwick Cremator">Cragganwick Cremator</a></button>
-    <button><a routerLink="/card/Body Double">Body Double</a></button>
-    <button><a routerLink="/card/Sakura-Tribe Scout">Sakura-Tribe Scout</a></button>
+<div class="search-container">
+  <input 
+    [(ngModel)]="searchTerm" 
+    placeholder="Search for a card" 
+    class="search-input" 
+  />
+  <button (click)="searchCard()" class="search-button">Search</button>
+</div>
+
+<nav class="nav-container">
+  <ul class="nav-list">
+    <li><button class="nav-button"><a routerLink="/card/Endurance Bobblehead">Endurance Bobblehead</a></button></li>
+    <li><button class="nav-button"><a routerLink="/card/Rubblebelt Maaka">Rubblebelt Maaka</a></button></li>
+    <li><button class="nav-button"><a routerLink="/card/Cragganwick Cremator">Cragganwick Cremator</a></button></li>
+    <li><button class="nav-button"><a routerLink="/card/Body Double">Body Double</a></button></li>
+    <li><button class="nav-button"><a routerLink="/card/Sakura-Tribe Scout">Sakura-Tribe Scout</a></button></li>
   </ul>
 </nav>
-<br>
+
+<br />
 
 <router-outlet></router-outlet>
