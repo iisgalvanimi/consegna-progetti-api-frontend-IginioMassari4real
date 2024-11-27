@@ -1,6 +1,13 @@
 <div class="mt-4">
-    <h2>Dettagli dell'oggetto</h2>
-    <pre>{{ itemId | json }}</pre>
-    <button (click)="goBack()" class="btn btn-secondary mt-3">Torna Indietro</button>
+    <button (click)="goBack()" class="btn btn-secondary mb-3">Torna Indietro</button>
+    <div *ngIf="item" class="card">
+      <img [src]="item.image" class="card-img-top" alt="Immagine">
+      <div class="card-body">
+        <h2 class="card-title">{{ item.name }}</h2>
+        <p class="card-text">{{ item.description }}</p>
+        <p class="card-text"><strong>Categoria:</strong> {{ item.category }}</p>
+        <p class="card-text"><strong>Prezzo:</strong> €{{ item.price }}</p>
+      </div>
+    </div>
   </div>
   
