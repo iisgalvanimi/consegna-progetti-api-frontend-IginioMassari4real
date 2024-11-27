@@ -1,0 +1,23 @@
+<div class="mt-4">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Cerca..."
+      class="form-control mb-3"
+    />
+    <button (click)="performSearch()" class="btn btn-primary mb-3">Cerca</button>
+  </div>
+  
+  <div *ngIf="results.length > 0" class="row">
+    <div *ngFor="let item of results" class="col-md-4 mb-3">
+      <div class="card">
+        <img [src]="item.image" class="card-img-top" alt="Immagine">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a [routerLink]="['/item', item.id]" class="text-decoration-none">{{ item.name }}</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
