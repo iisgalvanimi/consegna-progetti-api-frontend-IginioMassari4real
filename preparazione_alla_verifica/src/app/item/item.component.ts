@@ -16,7 +16,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
-    this.apiservice.getItemById(id).subscribe(data => {
+    this.apiservice.getItemById(id).subscribe((data: { product: any; }) => {
       this.product = data.product;
     });
   }
