@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../services/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-item',
@@ -11,12 +11,12 @@ export class ItemComponent implements OnInit {
   product: any;
   constructor(
     private route: ActivatedRoute,
-    private apiservice: ApiService
+    private foodService: ApiService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')!;
-    this.apiservice.getItemById(id).subscribe((data: { product: any; }) => {
+    this.foodService.getProductById(id).subscribe((data) => {
       this.product = data.product;
     });
   }

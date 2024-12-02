@@ -1,0 +1,115 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  /* Card Styles */
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Hover effect to lift the card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .card img {
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .row {
+    margin-top: 1.5rem;
+  }
+  
+  /* Button Styles */
+  .btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  /* List Styles */
+  ul.list-group {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .list-group-item {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+  }
+  
+  .list-group-item strong {
+    color: #343a40;
+  }
+  
+  .list-group-item span {
+    color: #6c757d;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+    color: #495057;
+    margin-bottom: 1rem;
+  }
+  
+  h4 + ul {
+    margin-top: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1rem;
+    }
+  
+    .card-title {
+      font-size: 1.25rem;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  
+    .card img {
+      max-height: 200px;
+    }
+  }
+  

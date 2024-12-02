@@ -1,0 +1,38 @@
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+      <button class="btn btn-secondary mb-3" [routerLink]="['/search']">
+        🔙 torna alla ricerca
+      </button>
+      <h2 class="card-title text-primary">
+        {{ product?.product_name || 'Product Details' }}
+      </h2>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <img
+            [src]="product?.image_front_url || 'https://via.placeholder.com/300'"
+            class="img-fluid rounded shadow-sm"
+            alt="Product Image"
+          />
+        </div>
+        <div class="col-md-8">
+          <h4>Dettagli</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Brand:</strong> {{ product?.brands || 'N/A' }}
+            </li>
+            <li class="list-group-item">
+              <strong>Categorie:</strong> {{ product?.categories || 'N/A' }}
+            </li>
+            <li class="list-group-item">
+              <strong>Ingredienti:</strong> {{ product?.ingredients_text || 'N/A' }}
+            </li>
+            <li class="list-group-item">
+              <strong>Punteggio Nutrizionale:</strong>
+              {{ product?.nutriscore_grade || 'N/A' }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,12 +1,61 @@
-.header {
-    text-align: center;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-bottom: 2px solid #ddd;
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #ffffff;
+  border-radius: 8px; /* Rounded corners for the navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-bottom: 2rem; /* Space below the navbar */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.75rem; /* Larger text size for the brand */
+  color: #007bff; /* Primary color for the brand */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar .navbar-brand:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.navbar .navbar-toggler {
+  border-color: #007bff; /* Matching color for navbar toggle */
+}
+
+.navbar .navbar-toggler-icon {
+  background-color: #007bff; /* Toggler icon color */
+}
+
+/* Container Styles */
+.container {
+  padding: 0 1rem; /* Padding on sides */
+}
+
+/* Router Outlet Styles */
+router-outlet {
+  display: block;
+  margin-top: 20px; /* Space above the router outlet */
+  padding: 2rem; /* Padding inside the outlet */
+  background-color: #ffffff; /* White background for the outlet */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow around the outlet */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar .navbar-brand {
+    font-size: 1.5rem; /* Slightly smaller text size on mobile */
   }
-  
-  h1 {
-    font-size: 2rem;
-    color: #333;
+
+  .container {
+    padding: 0 0.5rem; /* Less padding on mobile */
   }
-  
+}

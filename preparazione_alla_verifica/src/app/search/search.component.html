@@ -1,24 +1,44 @@
-<div class="ricerca">
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Cerca un prodotto">
-  <button class="btn btn-primary" (click)="onSearch()">Cerca</button>
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <h2 class="card-title text-center text-primary mb-3">
+      Cerca un ingrediente
+    </h2>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Scrivi un ingrediente (uova, pizza, pasta, etc.)"
+        [(ngModel)]="searchTerm"
+      />
+      <button class="btn btn-primary" (click)="search()">Cerca</button>
+    </div>
+  </div>
 </div>
-<div class="container mt-4">
-  <h2 align="center">Risultati della ricerca</h2>
-  <br>
-  <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let product of results.products">
-      <div class="card" style="width: 18rem;">
-        <img *ngIf="product.image_url" [src]="product.image_url" class="card-img-top" 
-             [alt]="product.product_name || 'Immagine non disponibile'" />
-        <img *ngIf="!product.image_url" src="assets/no-image.png" class="card-img-top" alt="Nessuna immagine disponibile" />
+
+<div *ngIf="searchResults.length > 0" class="results">
+  <h3 class="text-success">Risultato della ricerca</h3>
+  <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
+    <div *ngFor="let product of searchResults" class="col">
+      <div class="card shadow-sm h-100">
+        <img
+          [src]="product.image_front_small_url || 'https://via.placeholder.com/150'"
+          class="card-img-top"
+          alt="Product Image"
+        />
         <div class="card-body">
-          <h5 class="card-title">{{ product.product_name || 'Nome non disponibile' }}</h5>
-          <p class="card-text">
-            <strong>Marca:</strong> {{ product.brands || 'Non specificata' }}
-          </p>
-          <a [routerLink]="['/product', product.id]" class="btn btn-primary">Dettagli prodotto</a>
+          <h5 class="card-title">
+            <a 
+              [routerLink]="['/item', product.id]" 
+              class="text-decoration-none text-dark">
+              {{ product.product_name || 'Unnamed Product' }}
+            </a>
+          </h5>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="searchResults.length === 0 && searchTerm" class="alert alert-warning mt-3">
+  Nessun risultato trovato, prova a cercare altro.
 </div>

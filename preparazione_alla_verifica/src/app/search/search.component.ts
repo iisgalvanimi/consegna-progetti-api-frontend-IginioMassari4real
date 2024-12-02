@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../services/api.service';
-
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  searchTerm: string = '';
-  results: any;
+  searchResults: any[] = [];
+  searchTerm: string = ''; 
+  constructor(private foodService: ApiService) {}
 
-  constructor(private searchService: SearchService) {}
-
-  onSearch() {
-    this.searchService.searchProducts(this.searchTerm).subscribe(response => {
-      this.results = response;
-      console.log(response);
-    });
+  search() {
+    if (this.searchTerm.trim()) {
+      this.foodService.searchProducts(this.searchTerm).subscribe((data) => {
+        this.searchResults = data.products || [];
+      });
+    }
   }
 }

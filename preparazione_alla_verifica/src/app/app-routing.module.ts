@@ -5,13 +5,12 @@ import { ItemComponent } from './item/item.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'details/:id', component: ItemComponent },
+  { path: 'item/:id', component: ItemComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' },
-  { path: '**', redirectTo: '/search' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
