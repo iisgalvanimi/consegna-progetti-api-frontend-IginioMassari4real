@@ -1,40 +1,24 @@
-<div class="mt-4">
-    <input
-      type="text"
-      [(ngModel)]="searchQuery"
-      placeholder="Cerca..."
-      class="form-control mb-3"
-    />
-    <button (click)="performSearch()" class="btn btn-primary mb-3">Cerca</button>
-  </div>
-  
-  <div *ngIf="results.length > 0" class="row">
-    <div *ngFor="let item of results" class="col-md-4 mb-3">
-      <div class="card">
-        <img [src]="item.image" class="card-img-top" alt="Immagine">
+<div class="ricerca">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Cerca un prodotto">
+  <button class="btn btn-primary" (click)="onSearch()">Cerca</button>
+</div>
+<div class="container mt-4">
+  <h2 align="center">Risultati della ricerca</h2>
+  <br>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of results.products">
+      <div class="card" style="width: 18rem;">
+        <img *ngIf="product.image_url" [src]="product.image_url" class="card-img-top" 
+             [alt]="product.product_name || 'Immagine non disponibile'" />
+        <img *ngIf="!product.image_url" src="assets/no-image.png" class="card-img-top" alt="Nessuna immagine disponibile" />
         <div class="card-body">
-          <h5 class="card-title">
-            <a [routerLink]="['/item', item.id]" class="text-decoration-none">{{ item.name }}</a>
-          </h5>
+          <h5 class="card-title">{{ product.product_name || 'Nome non disponibile' }}</h5>
+          <p class="card-text">
+            <strong>Marca:</strong> {{ product.brands || 'Non specificata' }}
+          </p>
+          <a [routerLink]="['/product', product.id]" class="btn btn-primary">Dettagli prodotto</a>
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="results.length > 0" class="row">
-    <div *ngFor="let item of results" class="col-md-4 mb-3">
-      <div class="card">
-        <img [src]="item.image" class="card-img-top" alt="Immagine">
-        <div class="card-body">
-          <h5 class="card-title">
-            <a [routerLink]="['/item', item.id]" class="text-decoration-none">
-              {{ item.name }}
-            </a>
-          </h5>
-          <p class="card-text">{{ item.category }}</p>
-          <p class="card-text text-muted">Prezzo: €{{ item.price }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
+</div>

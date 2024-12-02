@@ -8,22 +8,16 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
-  item: any = null;
-
+  product: any;
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private apiService: ApiService
+    private apiservice: ApiService
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.apiService.getItemById(id).subscribe(data => {
-      this.item = data;
+    const id = this.route.snapshot.paramMap.get('id')!;
+    this.apiservice.getItemById(id).subscribe(data => {
+      this.product = data.product;
     });
-  }
-
-  goBack(): void {
-    this.router.navigate(['/search']);
   }
 }

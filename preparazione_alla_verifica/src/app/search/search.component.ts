@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { SearchService } from '../api.service';
+
 
 @Component({
   selector: 'app-search',
@@ -7,15 +8,15 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  searchQuery = '';
-  results: any[] = [];
+  searchTerm: string = '';
+  results: any;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private searchService: SearchService) {}
 
-  performSearch(): void {
-    this.apiService.searchItems(this.searchQuery).subscribe(data => {
-      this.results = data;
-      console.log(data); // Log su console
+  onSearch() {
+    this.searchService.searchProducts(this.searchTerm).subscribe(response => {
+      this.results = response;
+      console.log(response);
     });
   }
 }
