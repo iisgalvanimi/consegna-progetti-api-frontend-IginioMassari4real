@@ -1,13 +1,13 @@
 <div class="card shadow-sm mb-4">
   <div class="card-body">
-    <h2 class="card-title text-center text-primary mb-3">
-      Cerca un ingrediente
+    <h2 class="card-title text-center text-primary mb-3 text-center mx-auto">
+      Cerca un cibo o un ingrediente
     </h2>
     <div class="input-group mb-3">
       <input
         type="text"
         class="form-control"
-        placeholder="Scrivi un ingrediente (uova, pizza, pasta, etc.)"
+        placeholder="Scrivi un cibo o un ingrediente (uova, pizza, pasta, etc.)"
         [(ngModel)]="searchTerm"
       />
       <button class="btn btn-primary" (click)="search()">Cerca</button>
@@ -16,7 +16,7 @@
 </div>
 
 <div *ngIf="searchResults.length > 0" class="results">
-  <h3 class="text-success">Risultato della ricerca</h3>
+  <h3 class="text-success text-center mx-auto">RISULTATO DELLA RICERCA</h3>
   <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
     <div *ngFor="let product of searchResults" class="col">
       <div class="card shadow-sm h-100">
@@ -39,6 +39,6 @@
   </div>
 </div>
 
-<div *ngIf="searchResults.length === 0 && searchTerm" class="alert alert-warning mt-3">
+<div *ngIf="searchResults.length === 0 && searchTerm" class="alert alert-warning mt-3 text-center mx-auto">
   Nessun risultato trovato, prova a cercare altro.
 </div>
